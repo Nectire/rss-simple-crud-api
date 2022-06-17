@@ -2,11 +2,10 @@
   "name": "simple-crud-api",
   "version": "1.0.0",
   "description": "crud-api",
-  "main": "./src/index.ts",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
-    "start:prod": "cross-env NODE_ENV=production tsc",
-    "start:dev": "cross-env NODE_ENV=development nodemon --config nodemon.json src/index.ts"
+    "start:prod": "cross-env NODE_ENV=production tsc src/index.ts && node dist/index.js",
+    "start:dev": "cross-env NODE_ENV=development nodemon --config nodemon.json"
   },
   "repository": {
     "type": "git",
