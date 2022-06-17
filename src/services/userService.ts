@@ -22,11 +22,7 @@ export class UserService {
 
   createUser(user: UserData) {
     return new Promise<User>((resolve, reject) => {
-      const properties = ['username', 'age', 'hobbies'];
-
-      const isValid = properties.every(key => Object.prototype.hasOwnProperty.call(user, key))
-
-      if (!isValid) {
+      if (!this.checkRequiredFields(user)) {
         reject(new RequiredFieldsError());
         return;
       }
@@ -63,7 +59,12 @@ export class UserService {
   updateUser(id: string, userData: UserData) {
     return new Promise<User>((resolve, reject) => {
       let isUserUpdated = false;
-      let newUser!: User; 
+      let newUser!: User;
+
+      if (!this.checkRequiredFields(userData)) {
+        reject(new RequiredFieldsError());
+        return;
+      }
 
       dataBase = dataBase.map(user => {
         if (user.id === id) {
@@ -85,5 +86,10 @@ export class UserService {
       }
 
     })
+  }
+
+  private checkRequiredFields(user: UserData) {
+    const properties = ['username', 'age', 'hobbies'];
+    return properties.every(key => Object.prototype.hasOwnProperty.call(user, key))
   }
 }
