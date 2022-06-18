@@ -4,7 +4,7 @@
   "description": "crud-api",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
-    "start:prod": "cross-env NODE_ENV=production tsc src/index.ts && node dist/index.js",
+    "start:prod": "cross-env NODE_ENV=production tsc && node dist/index.js",
     "start:dev": "cross-env NODE_ENV=development nodemon --config nodemon.json"
   },
   "repository": {
