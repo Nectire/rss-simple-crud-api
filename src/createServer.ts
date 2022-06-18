@@ -53,4 +53,5 @@ export function createServer() {
     console.log(`Server running at http://${hostname}:${port}/`);
     console.log(`Worker ${process.pid} started\n`);
   });
+  return server;
 }
