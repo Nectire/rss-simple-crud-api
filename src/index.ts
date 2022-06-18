@@ -2,7 +2,7 @@ import { createMultiServer } from "./createMultiServer";
 import { createServer } from "./createServer";
 
 if (process.env.MULTI) {
-  createMultiServer()
+  createMultiServer();
 } else {
   createServer();
 }

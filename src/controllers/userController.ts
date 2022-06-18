@@ -48,7 +48,6 @@ export class UserController {
   async createUser( req: IncomingMessage, res: ServerResponse) {
     try {
       const data = await getRequestData(req);
-      console.log(data, 'data');
       
       const newUser = await new UserService().createUser(data);
       const statusHeader = {

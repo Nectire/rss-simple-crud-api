@@ -1,16 +1,5 @@
-import { Server } from 'http';
-import { newUser } from '../mocks';
-import { UserData } from '../types';
+import { mockUserData, newUser } from '../mocks';
 import { UserService } from './userService';
-
-
-const api = '/api/users';
-
-const mockUserData: UserData = {
-  username: "Elon Musk",
-  age: 50,
-  hobbies: ["rockets"]
-};
 
 describe('CRUD /api/users', () => {
 

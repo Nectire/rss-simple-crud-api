@@ -4,9 +4,9 @@ import { Methods, StatusCode, StatusMessage } from './enums';
 import { UserController } from './controllers/userController';
 import { PageNotFoundError } from './errors';
 
-export function createServer() {
+export function createServer(portParam = 3000) {
   const hostname = process.env.LOCAL;
-  const port = process.env.PORT || 3000;
+  const port = process.env.PORT || portParam;
 
   const server = http.createServer(async (req, res) => {
     const { method, url } = req;
@@ -53,5 +53,5 @@ export function createServer() {
     console.log(`Server running at http://${hostname}:${port}/`);
     console.log(`Worker ${process.pid} started\n`);
   });
-  return server;
+  return server
 }

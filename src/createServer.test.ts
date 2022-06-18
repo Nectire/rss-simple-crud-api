@@ -1,7 +1,6 @@
 import {Server} from 'http';
 import { createServer } from './createServer';
 import supertest from 'supertest';
-import { UserData } from './types';
 import { StatusCode } from './enums';
 import { UserNotFoundError } from './errors';
 import { mockUserData, newUser as newUserData } from './mocks';
@@ -17,8 +16,8 @@ describe('CRUD /api/users', () => {
     server = createServer();
   });
 
-  afterEach(() => {
-    server.close();
+  afterEach((done) => {
+    server.close(() => done());
   });
   
   it('Should return empty array successfully', async () => {
